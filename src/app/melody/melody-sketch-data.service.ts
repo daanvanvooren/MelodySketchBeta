@@ -18,7 +18,7 @@ export class MelodySketchDataService {
 
   //Get calls
   get melodies$(): Observable<Melody[]> {
-    return this.http.get(`${environment.apiUrl}/melodies/`).pipe(
+    return this.http.get(`https://melodysketchapidaanvv.azurewebsites.net/api/melodies/`).pipe(
       map(
         (list: any[]): Melody[] => list.map(Melody.fromJSON)
       )
@@ -26,7 +26,7 @@ export class MelodySketchDataService {
   }
 
   get mymelodies$(): Observable<Melody[]> {
-    return this.http.get(`${environment.apiUrl}/melodies/mymelodies/`).pipe(
+    return this.http.get(`https://melodysketchapidaanvv.azurewebsites.net/api/melodies/mymelodies/`).pipe(
       map(
         (list: any[]): Melody[] => list.map(Melody.fromJSON)
       )
@@ -34,7 +34,7 @@ export class MelodySketchDataService {
   }
 
   getMelody$(id): Observable<Melody> {
-    return this.http.get(`${environment.apiUrl}/melodies/${id}`).pipe(
+    return this.http.get(`https://melodysketchapidaanvv.azurewebsites.net/api/melodies/${id}`).pipe(
       map(
         (mel: any): Melody => Melody.fromJSON(mel)
       )
@@ -47,7 +47,7 @@ export class MelodySketchDataService {
 
   //Post calls
   addNewMelody(melody: Melody) {
-    return this.http.post(`${environment.apiUrl}/melodies/`,
+    return this.http.post(`https://melodysketchapidaanvv.azurewebsites.net/api/melodies/`,
       melody.toJSON());
   }
 
@@ -55,7 +55,7 @@ export class MelodySketchDataService {
   deteleMelody(id: Number): Observable<{}> {
     // this.http.delete(`${environment.apiUrl}/melodies/${id}`, null).subscribe();
     // this.melodies$.subscribe(); 
-    return this.http.delete(`${environment.apiUrl}/melodies/${id}`)
+    return this.http.delete(`https://melodysketchapidaanvv.azurewebsites.net/api/melodies/${id}`)
       .pipe(
         tap(() => {
           this._refreshNeeded$.next();
