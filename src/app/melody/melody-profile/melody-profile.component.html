@@ -1,0 +1,9 @@
+<div style="text-align:center">
+  <br>
+  <h2>Hi {{ getUserEmail() }}</h2>
+  <br>
+</div>
+
+<div *ngFor="let localMelody of (mymelodies$ | async)" id="melodiesContainer">
+  <app-melody [melody]="localMelody"></app-melody>
+</div>

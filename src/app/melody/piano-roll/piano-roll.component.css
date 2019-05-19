@@ -1,0 +1,57 @@
+#pianoRollContainer {
+    /* margin-left: 250px; */
+}
+
+#grid {
+    max-width: 1024px;
+}
+
+#timeline {
+    max-width: 1024px;
+}
+
+.icon {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 10px;
+    /* filter: hue-rotate(200deg) brightness(100%) saturate(500%); */
+    filter: brightness(0%) saturate(0%) opacity(80%);
+}
+
+.icon:hover {
+    filter: brightness(0%) saturate(0%) opacity(65%);
+}
+
+#controls {
+
+}
+
+/* Midi Upload */
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .inputfile+label {
+    font-weight: 500;
+    color: white;
+    /* background-color: #d12121; */
+    background-color: #303030;
+    display: inline-block;
+    padding: 0px 0px 4px 5px;
+    width: 208px;
+  }
+  
+  .inputfile+label:hover {
+    /* background-color: #e02a2a; */
+    background-color: #555555;
+  }
+  
+  .inputfile+label {
+    cursor: pointer;
+    /* "hand" cursor */
+  }

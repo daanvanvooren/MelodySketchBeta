@@ -1,0 +1,17 @@
+<br>
+<br>
+
+<div id="beginBanner" style="text-align:center">
+  <h1>
+    <div id="beginBannerText"><b>MELODICAL IDEAS</b></div>
+  </h1>
+</div>
+
+<br>
+<br>
+
+<div *ngIf=melodies>
+  <div *ngFor="let localMelody of melodies" id="melodiesContainer">
+    <app-melody [melody]="localMelody"></app-melody>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<br>
+<br>
+
+<div id="beginBanner" style="text-align:center">
+  <h1>
+    <div id="beginBannerText"><b>Welcome {{getUserEmail()}}!</b></div>
+  </h1>
+</div>
+<br>
+<!-- 
+<div style="text-align:center">
+  <h1>Welcome {{getUserEmail()}}!</h1>
+</div> -->
+
+<br>
+<br>
+
+
+<div id="wrapper">
+  <h2>Your info</h2>
+  E-mail: / <br>
+  Lastname: / <br>
+  Firstname: / <br>
+  Joined on: / <br>
+
+  <br>
+  <br>
+
+  <h2>Your melodies</h2>
+  <div id="tableContainer" *ngIf=melodies>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>BPM</th>
+          <th>Description</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let localMelody of melodies" id="melodiesContainer">
+          <td>{{localMelody.name}}</td>
+          <td>{{localMelody.bpm}}</td>
+          <td>{{localMelody.description}}</td>
+          <td><button><i class="fa fa-edit"></i></button></td>
+          <td><button (click)="deleteMelody(localMelody.id)"><i class="fa fa-remove"></i></button></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,122 @@
+<!-- <div *ngIf="(melody$ | async) as melody; else stillLoading">
+  <app-piano-roll [melody]="melody"></app-piano-roll>
+</div> Get melody from db and plot in pianoRoll-->
+
+<!-- <mat-card>
+  <mat-card-title>add melody</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="melody" (ngSubmit)='onSubmit()'>
+      <mat-form-field>
+        <input
+          id = "bpmInput"
+          matInput
+          aria-label="bpm"
+          placeholder="bpm"
+          type="number"
+          formControlName="bpm"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+        matInput
+        aria-label="name"
+        placeholder="name"
+        type="text"
+        formControlName="name"
+      />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+        matInput
+        aria-label="description"
+        placeholder="description"
+        type="text"
+        formControlName="description"
+      />
+      </mat-form-field>
+      <button type='submit' mat-raised-button>
+        add
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card> -->
+
+<br>
+<br>
+
+
+<br>
+
+<div style="text-align:center">
+  <h1>Add Melody</h1>
+</div>
+
+<br>
+
+
+<div style="text-align:center">
+</div>
+
+<div id="wrapper">
+  <app-piano-roll (notesOuput)="getNotes($event)"></app-piano-roll>
+
+  <div id="detailsContainer">
+    <form [formGroup]="melody" (ngSubmit)='onSubmit()'>
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" id="Name" placeholder="Name" formControlName="name">
+        <small>
+          <p *ngIf="melody.get('name')['errors']?.required" class="text-danger">&nbsp;Name is required</p>
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="BPM">BPM</label>
+        <input type="number" class="form-control" id="BPM" placeholder="BPM" formControlName="bpm">
+        <small>
+          <p *ngIf="melody.get('bpm')['errors']?.required" class="text-danger">&nbsp;BPM is required</p>
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea type="text" class="form-control" id="Description" placeholder="Description"
+          formControlName="description" rows="3"></textarea>
+        <small>
+          <p *ngIf="melody.get('description')['errors']?.required" class="text-danger">&nbsp;Description is required</p>
+        </small>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary" [disabled]='!melody.valid'>Add</button>
+    </form>
+
+    <!-- Added Modal -->
+    <div class="modal fade" id="submittedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Melody added</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            You're melody has been added succesfully!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal"
+              [routerLink]="['/melody/list']">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<br>

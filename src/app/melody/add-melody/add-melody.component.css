@@ -1,0 +1,23 @@
+#detailsContainer {
+    /* margin-left: 250px; */
+    max-width: 500px;
+}
+
+.pianoRoll {
+    max-width: 550px;
+}
+
+#wrapper {
+    margin: 0px 5vw 0px 5vw;
+
+    /* width: 1000px;
+    margin: 0 auto; 
+    padding: 10px; */
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+    #wrapper {
+        margin-left: 16vw
+    }
+  }
